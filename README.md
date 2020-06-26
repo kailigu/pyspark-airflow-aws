@@ -17,11 +17,18 @@
 
 - Aiport Code table: [Source](https://datahub.io/core/airport-codes#data). Includes a collection of airport codes and their respective cities, countries around the world.
 
-| ident | type          | name                               | elevation_ft | continent | iso_country | iso_region | municipality | gps_code | iata_code | local_code | coordinates                           |
-|-------|---------------|------------------------------------|--------------|-----------|-------------|------------|--------------|----------|-----------|------------|---------------------------------------|
-| 00A   | heliport      | Total Rf Heliport                  | 11           | NA        | US          | US-PA      | Bensalem     | 00A      |           | 00A        | -74.93360137939453, 40.07080078125    |
-| 00AA  | small_airport | Aero B Ranch Airport               | 3435         | NA        | US          | US-KS      | Leoti        | 00AA     |           | 00AA       | -101.473911, 38.704022                |
+|ident|type         |name                |elevation_ft|continent|iso_country|iso_region|municipality|gps_code|iata_code|local_code|coordinates                       |
+|-----|-------------|--------------------|------------|---------|-----------|----------|------------|--------|---------|----------|----------------------------------|
+|00A  |heliport     |Total Rf Heliport   |11          |NA       |US         |US-PA     |Bensalem    |00A     |         |00A       |-74.93360137939453, 40.07080078125|
+|00AK |small_airport|Lowell Field        |450         |NA       |US         |US-AK     |Anchor Point|00AK    |         |00AK      |-151.695999146, 59.94919968       |
   
 
 - US City Demographic Data: This dataset comes from OpenSoft [Source](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/). Includes population formation of US states, like race and gender.
+
+|City            |State        |Median Age|Male Population|Female Population|Total Population|Number of Veterans|Foreign-born|Average Household Size|State Code|Race                     |Count|
+|----------------|-------------|----------|---------------|-----------------|----------------|------------------|------------|----------------------|----------|-------------------------|-----|
+|Quincy          |Massachusetts|41.0      |44129          |49500            |93629           |4147              |32935       |2.39                  |MA        |White                    |58723|
+|Hoover          |Alabama      |38.5      |38040          |46799            |84839           |4819              |8229        |2.58                  |AL        |Asian                    |4759 |
+
+
 
