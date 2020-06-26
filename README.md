@@ -12,3 +12,16 @@
 | 589494  | 1195600 | 2016  | 4      | 148    | 112    | OGG     | 20551   | 1       | FL      | 20571   | 76     | 2       | 1     | 20160407 |          |       | G       | O       |         | M       | 1940    | 7052016  | M      |        | LH      | 5.58E+10 | 464   | WT       |
 | 2631158 | 5291768 | 2016  | 4      | 297    | 297    | LOS     | 20572   | 1       | CA      | 20581   | 25     | 2       | 1     | 20160428 | DOH      |       | G       | O       |         | M       | 1991    | 10272016 | M      |        | QR      | 9.48E+10 | 739   | B2       |
 | 3032257 | 985523  | 2016  | 4      | 111    | 111    | CHM     | 20550   | 3       | NY      | 20553   | 19     | 2       | 1     | 20160406 |          |       | Z       | K       |         | M       | 1997    | 7042016  | F      |        |         | 4.23E+10 | LAND  | WT       |
+
+
+
+- Aiport Code table: [Source](https://datahub.io/core/airport-codes#data). Includes a collection of airport codes and their respective cities, countries around the world.
+
+| ident | type          | name                               | elevation_ft | continent | iso_country | iso_region | municipality | gps_code | iata_code | local_code | coordinates                           |
+|-------|---------------|------------------------------------|--------------|-----------|-------------|------------|--------------|----------|-----------|------------|---------------------------------------|
+| 00A   | heliport      | Total Rf Heliport                  | 11           | NA        | US          | US-PA      | Bensalem     | 00A      |           | 00A        | -74.93360137939453, 40.07080078125    |
+| 00AA  | small_airport | Aero B Ranch Airport               | 3435         | NA        | US          | US-KS      | Leoti        | 00AA     |           | 00AA       | -101.473911, 38.704022                |
+  
+
+- US City Demographic Data: This dataset comes from OpenSoft [Source](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/). Includes population formation of US states, like race and gender.
+
