@@ -14,7 +14,6 @@
 | 3032257 | 985523  | 2016  | 4      | 111    | 111    | CHM     | 20550   | 3       | NY      | 20553   | 19     | 2       | 1     | 20160406 |          |       | Z       | K       |         | M       | 1997    | 7042016  | F      |        |         | 4.23E+10 | LAND  | WT       |
 
 
-
 - Aiport Code table: [Source](https://datahub.io/core/airport-codes#data). Includes a collection of airport codes and their respective cities, countries around the world.
 
 |ident|type         |name                |elevation_ft|continent|iso_country|iso_region|municipality|gps_code|iata_code|local_code|coordinates                       |
@@ -29,6 +28,17 @@
 |----------------|-------------|----------|---------------|-----------------|----------------|------------------|------------|----------------------|----------|-------------------------|-----|
 |Quincy          |Massachusetts|41.0      |44129          |49500            |93629           |4147              |32935       |2.39                  |MA        |White                    |58723|
 |Hoover          |Alabama      |38.5      |38040          |46799            |84839           |4819              |8229        |2.58                  |AL        |Asian                    |4759 |
+
+- World temperature Data: This dataset comes from Kaggle [Source](https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data). Includes temperature recordings of cities around the world for a period of time
+
+|dt  |AverageTemperature|AverageTemperatureUncertainty|City|Country|Latitude|Longitude|
+|----|------------------|-----------------------------|----|-------|--------|---------|
+|01/01/2013|6.32              |0.267                        |Abilene|United States|32.95N  |100.53W  |
+|01/06/2013|20.892            |0.273                        |New York|United States|40.99N  |74.56W   |
+
+
+
+
 
 
 
