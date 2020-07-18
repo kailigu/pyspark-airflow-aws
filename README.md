@@ -1,7 +1,7 @@
 # pyspark-airflow-aws
 
 
-### Data source
+### Data Source
 
 - I94 Immigration Data: This data comes from the US National Tourism and Trade Office [Source](https://travel.trade.gov/research/reports/i94/historical/2016.html). This data records immigration records partitioned by month of every year.
 
@@ -37,8 +37,9 @@
 |01/06/2013|20.892            |0.273                        |New York|United States|40.99N  |74.56W   |
 
 
+### Data Model
 
-
+![img](img/model.png)
 
 
 
