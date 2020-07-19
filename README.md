@@ -67,7 +67,11 @@ Read temperature data and add CITY_CODE to formulate table **WEATHER**. CITY_COD
 Read immigration data and join it with other dimension tables to get foreign keys in the fact table **IMMIGRATION**. 
 
 
+### Rubic-related answers
+- Data quality checks are included in each task. The output is read immediately to check the resulted data is not null. 
 
+- The data was increased by 100x: the Spark containers in docker-compose.yml could be easily scaled up by adding more workers. 
 
+- The pipelines would be run on a daily basis by 7 am every day: Set schedule_interval="0 7 * * *" in dag properties. 
 
-
+- The database needed to be accessed by 100+ people: Store data in Redshift which provides auto-scaling capabilities and good read performance. 
