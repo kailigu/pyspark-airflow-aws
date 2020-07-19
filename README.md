@@ -47,8 +47,27 @@ The dimension WEATHER is a role-playing dimension to query both the weather of a
 
 ### ETL DAG
 
-The ETL process is orchestrated by AIRFLOW. The airflow dag is implemented under /mnt/dags. The graph of the dag is as follows:
+The ETL process is orchestrated by AIRFLOW. The airflow dag is implemented under /mnt/dags/dag.py. The graph of the dag is as follows:
 
 ![img](img/airflow.png)
 
-1. 
+1. **get_CITY_CODE**  (/mnt/dags/scripts/task1.py):\
+Read I94 data dictionary and extract table **COUNTRY** and filed CITY_CODE. CITY_CODE will be used in following tasks.
+
+2. **get_US_CITY**  (/mnt/dags/scripts/task2.py): \
+Read demographics data and add CITY_CODE to formualte table **US_CITY**.
+
+3. **get_AIRPORT**  (/mnt/dags/scripts/task3.py): \
+Read airport data and add CITY_CODE to formulate table **AIRPORT**. CITY_CODE will be used to join AIRPORT with the fact table.
+
+4. **get_WEATHER**  (/mnt/dags/scripts/task4.py):\
+Read temperature data and add CITY_CODE to formulate table **WEATHER**. CITY_CODE will be used to join WEATHER with the fact table.
+
+5. **get_FACT_table** (/mnt/dags/scripts/task5.py):\
+Read immigration data and join it with other dimension tables to get foreign keys in the fact table **IMMIGRATION**. 
+
+
+
+
+
+
