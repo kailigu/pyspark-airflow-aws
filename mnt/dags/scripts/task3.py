@@ -14,6 +14,10 @@ df_airport.columns = df_airport.columns.str.upper()
 df_airport.to_parquet('/opt/data/AIRPORT')
 
 
+# Data Quality check
+df = pd.read_parquet("/opt/data/AIRPORT")
+if len(df.index) < 1:
+    raise ValueError(f"Data quality check failed. It has no records")
 
 
 

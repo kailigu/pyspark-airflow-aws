@@ -34,7 +34,10 @@ df_cities['CITY_NAME'] = df_cities['CITY_NAME'].str.title()
 df_cities.to_parquet('/opt/data/US_CITY_CODE')
 
 
-# Data Quality check 
+# Data Quality check
+df = pd.read_parquet("/opt/data/US_CITY_CODE")
+if len(df.index) < 1:
+    raise ValueError(f"Data quality check failed. It has no records")
 
 
 

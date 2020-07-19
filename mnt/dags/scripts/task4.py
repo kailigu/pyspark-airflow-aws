@@ -11,10 +11,15 @@ df_temp = df_temp.merge(df_city[['CITY_CODE','CITY_NAME']], left_on='City', righ
 df_temp.drop(['CITY_NAME','City'],axis=1, inplace=True)
 df_temp.rename(columns={'dt': 'DATE'}, inplace=True)
 df_temp['DATE'] = pd.to_datetime(df_temp['DATE'])
+df_temp = df_temp.query("DATE>'1992-01-01'")
+df_temp.reset_index(drop=True, inplace=True)
 df_temp['WEATHER_ID'] = df_temp.index
 df_temp.to_parquet('/opt/data/WEATHER')
 
 
-
+# Data Quality check
+df = pd.read_parquet("/opt/data/WEATHER")
+if len(df.index) < 1:
+    raise ValueError(f"Data quality check failed. It has no records")
 
 

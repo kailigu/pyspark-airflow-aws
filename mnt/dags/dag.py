@@ -21,12 +21,12 @@ dag = DAG('example_dag',
         )
 
 city_code = BashOperator(
-    task_id='get_COUNTRY_and_CITY_CODE',
+    task_id='get_CITY_CODE',
     bash_command='python /usr/local/airflow/dags/scripts/task1.py',
     dag=dag)
 
 city = BashOperator(
-    task_id='get_US_CITY_and_US_STATE',
+    task_id='get_US_CITY',
     bash_command='python /usr/local/airflow/dags/scripts/task2.py',
     dag=dag)    
 
@@ -41,9 +41,9 @@ weather = BashOperator(
     dag=dag)   
 
 test = SparkSubmitOperator(
-    task_id="test",
+    task_id="get_FACT_table",
     conn_id="spark_conn",
-    application="/usr/local/airflow/dags/scripts/test.py",
+    application="/usr/local/airflow/dags/scripts/task5.py",
     verbose=False,
     dag = dag
 )

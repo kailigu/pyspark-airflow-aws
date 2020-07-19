@@ -27,5 +27,9 @@ df_demo['CITY_ID'] = df_demo.index
 df_demo.to_parquet('/opt/data/US_CITY')
 
 
+# Data Quality check
+df = pd.read_parquet("/opt/data/US_CITY")
+if len(df.index) < 1:
+    raise ValueError(f"Data quality check failed. It has no records")
 
 

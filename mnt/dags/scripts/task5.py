@@ -2,6 +2,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import udf
 from pyspark.sql.types import DateType
 from datetime import datetime, timedelta
+import pandas as pd
 
 def convert_datetime(x):
     try:
@@ -44,8 +45,13 @@ df_fact = df_fact.drop("_c0","i94yr","i94mon","i94res","i94port","i94addr","arrd
 df_fact = df_fact.selectExpr("cicid as IMMI_ID","i94cit as COUNTRY_ID","CITY_ID","AIRPORT_ID","ARRIVE_WEATHER_ID",\
                    "DEP_WEATHER_ID", "ARRIVE_DATE","DEP_DATE","i94mode as TRAVEL_MODE", "i94bir as AGE",\
                    "i94visa as VISA_CODE", "occup as OCCUPATION" ,"biryear as BIRTH_YEAR", "gender as GENDER",\
-                   "airline as AIRLINE","admnum as ADMISSION_CODE","fltno as FLIGHT_CODE", "visatype as VISA_TYPE" )    
-df_fact.write.csv('/opt/data/IMMIGRATION', mode="overwrite")
+                   "airline as AIRLINE","admnum as ADMISSION_CODE","fltno as FLIGHT_CODE", "visatype as VISA_TYPE" ) 
+df_fact = df_fact.toPandas()                               
+df_fact.to_csv('/opt/bitnami/spark/output/IMMIGRATION.csv')
 
 
+# Data Quality check
+df_fact = pd.read_csv("/opt/bitnami/spark/output/IMMIGRATION.csv")
+if len(df_fact.index) < 1:
+    raise ValueError(f"Data quality check on IMMIGRATION failed. It has no records")
 
