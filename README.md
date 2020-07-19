@@ -47,6 +47,8 @@ The dimension WEATHER is a role-playing dimension to query both the weather of a
 
 ### ETL DAG
 
-Airflow DAG diagram:
+The ETL process is orchestrated by AIRFLOW. The airflow dag is implemented under /mnt/dags. The graph of the dag is as follows:
 
+![img](img/airflow.png)
 
+1. 
