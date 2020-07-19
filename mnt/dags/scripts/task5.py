@@ -14,7 +14,8 @@ udf_datetime_from_sas = udf(lambda x: convert_datetime(x), DateType())
 
 
 spark = SparkSession.builder.appName("fact").getOrCreate()
-df_fact = spark.read.csv("/opt/data/immigration_data_sample.csv", header=True)
+df_fact = spark.read.format('com.github.saurfang.sas.spark')\
+                    .load('s3://de-capstone/raw/i94_immigration_data/i94_apr16_sub.sas7bdat')
 
 df_fact = df_fact.withColumn("ARRIVE_DATE", udf_datetime_from_sas("arrdate")) \
                 .withColumn("DEP_DATE", udf_datetime_from_sas("depdate"))
