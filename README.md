@@ -42,5 +42,11 @@ The designed data model is as shown in the below digram:
 
 ![img](img/model.png)
 
-The model follows a star schema with several dimensions and one fact table. The dimension WEATHER is a role-playing dimension.
+The model follows a star schema with several dimensions and one fact table for query performance. 
+The dimension WEATHER is a role-playing dimension to query both the weather of arrival date and departure date. 
+
+### ETL DAG
+
+Airflow DAG diagram:
+
 
