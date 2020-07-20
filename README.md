@@ -81,8 +81,20 @@ Read immigration data and join it with other dimension tables to get foreign key
 ### Rubic-related answers
 - Data quality checks are included in each task. The output is read immediately to check the resulted data is not null. 
 
-- The data was increased by 100x: the Spark containers in docker-compose.yml could be easily scaled up by adding more workers. 
 
-- The pipelines would be run on a daily basis by 7 am every day: Set schedule_interval="0 7 * * *" in dag properties. 
+- Data increase by 100x. read > write. write > read
+    - Redshift: Analytical database, optimized for aggregation, also good performance for read-heavy workloads
+    - Cassandra: Is optimized for writes, can be used to write online transactions as it comes in, and later aggregated into analytics tables in Redshift
+    - Increase the number of Spark workers to handle bigger volume of data
 
-- The database needed to be accessed by 100+ people: Store data in Redshift which provides auto-scaling capabilities and good read performance. 
+
+- Pipelines would be run on 7am daily. how to update dashboard? would it still work?
+    - DAG retries, or send emails on failures
+    - Set schedule_interval="0 7 * * *" in dag properties  with quality checks
+    - if checks fail, then send emails to operators, freeze dashboard, look at DAG logs to figure out what went wrong
+
+
+- Make it available to 100+ people
+    - Redshift with auto-scaling capabilities and good read performance
+    - Cassandra with pre-defined indexes to optimize read queries
+
