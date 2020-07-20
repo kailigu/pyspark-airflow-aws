@@ -42,8 +42,19 @@ The designed data model is as shown in the below digram:
 
 ![img](img/model.png)
 
-The model follows a star schema with several dimensions and one fact table for query performance. 
-The dimension WEATHER is a role-playing dimension to query both the weather of arrival date and departure date. 
+The model follows a star schema with several dimensions and one fact table for query performance. The grain of the fact table is a transaction record for an immigrant. 
+The dimension WEATHER is a role-playing dimension to query both the weather of arrival date and departure date. \
+The model is designed for anyone who's interested in finding patterns in US immigration records. Questions like the following could be easily quried:
+
+- Which US city is the most popular destination? 
+- Does this popularity correlate with weather or immigrants' age, origin country or gender?
+- Does the demographics of the city have anything to do with immigrants' preference of visits?
+- Is it that less people are visiting US in the winter?
+
+### Choice of tools
+
+The project is implemented in Docker containers to priovide consistency and scalability.\
+The ETL flow is orchestarted by AIRFLOW. Dimension tables are transformed by Pandas as they can be easily fit into memory. The fact table is transformed by Spark as its enormisity and multiple joins are required to add foreign keys to it. 
 
 ### ETL DAG
 
